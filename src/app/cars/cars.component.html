@@ -1,0 +1,18 @@
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Brand</th>
+        <th>Registration</th>
+        <th>Country</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="result | async as results">
+      <tr *ngFor="let car of results.cars">
+        <td>{{ car.id}}</td>
+        <td>{{ car.brand }}</td>
+        <td>{{ car.registration | date: "MM/dd/yy" }}</td>
+        <td>{{ car.country }}</td>
+      </tr>
+    </tbody>
+  </table>
