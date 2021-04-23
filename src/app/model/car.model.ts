@@ -1,10 +1,16 @@
 export class Car {
     public id: string;
-    public brand: string;
-    public country: string;
-    public registration: Date;
+    public createdAt: Date;
+    public lastUpdate: Date;
+
  
- 
-     constructor(){}
+     constructor(
+     public brand: string,
+    public country: string,
+    public registration: Date,
+    
+   ){
+    
+   }
  }
  

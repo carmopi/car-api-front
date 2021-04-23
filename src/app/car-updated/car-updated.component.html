@@ -1,0 +1,38 @@
+<div class = "container" *ngIf = "car" > 
+    
+    <form>
+        <div>
+            <label for ="car-id"> Id </label>
+            <input type = "text" id ="cid" name="id" [(ngModel)] = "car.id"/>
+            </div>
+        <div>
+        <label> Brand </label>
+        <input type = "text" id ="cbrand" name="brand" [(ngModel)] = "car.brand"/>
+        </div>
+
+        <div>
+            <label> Country </label>
+            <input type = "text" id ="ccountry" name="country" [(ngModel)] = "car.country"/>
+        </div>
+
+        <div>
+            <label> Registration Date</label>
+            <input type = "datetime-local" id = "cregistration" name = "registration" [(ngModel)] = "car.registration"/>
+
+        </div>
+       <div>
+            <label> Creation Date </label>
+            <input type = "datetime-local" id = "ccreatedat" name = "createdAt" [(ngModel)] = "car.createdAt"/>
+
+        </div>
+        <div>
+            <label> Last Update </label>
+            <input type = "datetime-local" id = "clastupdate" name = "lastUpdate" [(ngModel)] = "car.lastUpdate"/>
+
+        </div>
+
+        
+    </form>
+
+    <button type = "button" value =" Update a car" (click)="updateCar()"> Update </button>
+</div>

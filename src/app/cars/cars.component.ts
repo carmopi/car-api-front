@@ -19,5 +19,15 @@ export class CarsComponent implements OnInit {
     
   }
 
+  deleteCar(ev : any){
+    const currentCar = ev.currentTarget.id;
+    this.carService.deleteCar(currentCar).subscribe();
+    window.location.reload();
+
+  }
+
+ 
+  
+ 
 
 }
