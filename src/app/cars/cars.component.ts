@@ -25,6 +25,8 @@ export class CarsComponent implements OnInit {
     window.location.reload();
 
   }
+
+ 
   
  
 

@@ -9,6 +9,8 @@ import { CarsComponent } from './cars/cars.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { NewCarComponent } from './new-car/new-car.component';
 import { FormsModule } from '@angular/forms';
+import { CarUpdatedComponent } from './car-updated/car-updated.component';
+
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { FormsModule } from '@angular/forms';
     AppComponent,
     CarsComponent,
     CarDetailsComponent,
-    NewCarComponent
+    NewCarComponent,
+    CarUpdatedComponent,
+
   ],
   imports: [
     BrowserModule,

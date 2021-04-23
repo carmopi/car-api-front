@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { TagPlaceholder } from '@angular/compiler/src/i18n/i18n_ast';
+
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { Car } from '../model/car.model';
@@ -31,7 +31,7 @@ export class CarService {
 
   /**GET information of one specific car */
   getCar(id: string): Observable<any>{
-    return this.httpClient.get<any>(`${this.url}/${id}`);
+    return this.httpClient.get<any>(`${this.url}/${id}`, httpOptions);
   }
 
   /**DELETE a car */
@@ -42,7 +42,12 @@ export class CarService {
 
   /** POST: add a new car on the server */
   addCar(car : Car): Observable<any>{
-    return this.httpClient.post<any>(this.url, car);
+    return this.httpClient.post<any>(this.url, car, httpOptions);
   }
 
+
+  /**PUT: update a car on the server */
+  updateCar(id: string , car: Car): Observable<any>{
+    return this.httpClient.put<any>(`${this.url}/${id}`,car, httpOptions);
+  }
 }

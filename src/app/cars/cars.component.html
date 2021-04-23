@@ -15,6 +15,7 @@
         <td>{{ car.registration | date: "MM/dd/yy" }}</td>
         <td>{{ car.country }}</td>
         <td><button [id] ="car.id" class = "delete" (click) = deleteCar($event)> x </button> </td>
+        
       </tr>
     </tbody>
   </table>
