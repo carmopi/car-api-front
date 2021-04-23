@@ -1,0 +1,10 @@
+<div *ngIf="car | async as res">
+<h2>{{res.brand | uppercase}} Details</h2>
+<div><span>id: </span>{{res.id}}</div>
+<div><span>Country: </span>{{res.country}}</div>
+<div><span>Registration: </span>{{res.registration | date: "MM/dd/yy"}}</div>
+<div><span>Creation date: </span>{{res.createdAt | date: "MM/dd/yy"}}</div>
+<div><span>Last update: </span>{{res.lastUpdate | date: "MM/dd/yy"}}</div>
+
+</div>
+  

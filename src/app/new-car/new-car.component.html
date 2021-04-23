@@ -1,0 +1,23 @@
+<div clas = "container"> 
+    <form>
+        <div>
+        <label> Brand </label>
+        <input type = "text" id ="cbrand" name="brand" [(ngModel)] = "brand"/>
+        </div>
+
+        <div>
+            <label> Country </label>
+            <input type = "text" id ="ccountry" name="country" [(ngModel)] = "country"/>
+        </div>
+
+        <div>
+            <label> Registration </label>
+            <input type = "datetime-local" id = "cregistration" name = "registration" [(ngModel)] = "registration"/>
+
+        </div>
+
+        
+    </form>
+
+    <button type = "button" (click)="addCar()"> Submit </button>
+</div>
