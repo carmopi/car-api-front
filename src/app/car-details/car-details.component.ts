@@ -30,8 +30,12 @@ export class CarDetailsComponent implements OnInit {
     this.router.navigate(['update', this.carId]);
   }
 
- 
+  deleteCar(){
+   
+    this.carService.deleteCar(this.carId).subscribe();
+    this.router.navigate(['cars']);
 
+  }
  
  }
 

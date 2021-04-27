@@ -10,6 +10,8 @@ import { CarDetailsComponent } from './car-details/car-details.component';
 import { NewCarComponent } from './new-car/new-car.component';
 import { FormsModule } from '@angular/forms';
 import { CarUpdatedComponent } from './car-updated/car-updated.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './material/material.module';
 
 
 
@@ -26,7 +28,12 @@ import { CarUpdatedComponent } from './car-updated/car-updated.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule, 
-    FormsModule
+    FormsModule, 
+    BrowserAnimationsModule,
+    MaterialModule
+  
+   
+
   ],
   providers: [CarService],
   bootstrap: [AppComponent]

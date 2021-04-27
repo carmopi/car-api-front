@@ -1,24 +1,49 @@
-<table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Brand</th>
-        <th>Registration</th>
-        <th>Country</th>
-       
-      </tr>
-    </thead>
-    <tbody *ngIf="result | async as results">
-      <tr *ngFor="let car of results.cars">
-        <td [routerLink]="['/cars/',car.id]">{{ car.id }}</td>
-        <td>{{ car.brand }}</td>
-        <td>{{ car.registration | date: "MM/dd/yy" }}</td>
-        <td>{{ car.country }}</td>
-        <td><button [id] ="car.id" class = "delete" (click) = deleteCar($event)> x </button> </td>
+
+  <mat-form-field class = "bg-secondary text-light mb-2 w-100">
+    <mat-label>Filter</mat-label>
+    <input  matInput (keyup)="applyFilter($event)" placeholder="Filter">
+  </mat-form-field>
+
+<div class = "table table-hover mx-auto" >  
+  <h1 class = "text-info bg-light">CARS TABLE </h1>
+
+  <mat-table  [dataSource] = "dataSource" matSort>
+  
+
+      <!-- ID COLUMN-->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+          <mat-cell *matCellDef="let row" [id]="row.id" (click)=getCar($event) >{{ row.id }}</mat-cell>
+        </ng-container>
+
+        <!--BRAND COLUMN-->
+        <ng-container matColumnDef = "brand">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Brand</mat-header-cell> 
+          <mat-cell *matCellDef="let row">{{ row.brand }}</mat-cell>
+        </ng-container>
         
-      </tr>
-    </tbody>
-  </table>
+        <!--REGISTRATION COLUMN-->
+        <ng-container matColumnDef = "registration">
+         <mat-header-cell *matHeaderCellDef mat-sort-header>Registration</mat-header-cell>
+         <mat-cell *matCellDef="let row">{{ row.registration}}</mat-cell>
+        </ng-container>
+
+        <!--COUNTRY COLUMN-->
+        <ng-container matColumnDef = "country">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>Country</mat-header-cell>
+          <mat-cell *matCellDef="let row">{{ row.country }}</mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        
+
+        
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+  
 
 
 

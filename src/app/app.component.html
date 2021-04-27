@@ -1,12 +1,21 @@
-<div class = "container">
- 
-  <router-outlet>
- <button><a routerLink = "/cars"> Cars </a></button> 
-  </router-outlet>
+<ul class = "nav nav-tabs">
+  <!-- <li class = "nav-item">
+    <a class = "nav-link active" aria-current="page" routerLink = " "> Inicio </a>
+  </li>-->
+  <li class = "nav-item"> 
+   
+ <a class = "nav-link active" aria-current="page" routerLink = "/cars"> Cars Table</a>
 
-</div>
-<div>
-  <router-outlet>
-   <button> <a routerLink = "/createcar"> Create a Car</a></button>
-  </router-outlet>
-</div>
+</li>
+  <li class = "nav-item">
+    <a class = "nav-link active" aria-current="page" routerLink = "/createcar"> Create a Car </a>
+  </li>
+  
+</ul>
+
+  <router-outlet></router-outlet>
+
+ 
+ 
+
+

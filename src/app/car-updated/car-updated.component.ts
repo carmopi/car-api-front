@@ -12,11 +12,6 @@ import { Car } from '../model/car.model';
 })
 export class CarUpdatedComponent implements OnInit {
 
-  public brand!: string;
-  public country!: string;
-  public registration!: Date;
-  public createdAt!: Date;
-  public lastUpdate!: Date;
 
   public carId: string = this.route.snapshot.paramMap.get('carId');
   public car: Car;
