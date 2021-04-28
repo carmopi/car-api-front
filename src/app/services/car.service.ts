@@ -30,24 +30,24 @@ export class CarService {
   }
 
   /**GET information of one specific car */
-  getCar(id: string): Observable<any>{
-    return this.httpClient.get<any>(`${this.url}/${id}`, httpOptions);
+  getCar(id: string): Observable<Car>{
+    return this.httpClient.get<Car>(`${this.url}/${id}`, httpOptions);
   }
 
   /**DELETE a car */
-  deleteCar(id: string): Observable<any>{
-    return this.httpClient.delete<any>(`${this.url}/${id}`, httpOptions);
+  deleteCar(id: string): Observable<Car>{
+    return this.httpClient.delete<Car>(`${this.url}/${id}`, httpOptions);
      
   }
 
   /** POST: add a new car on the server */
-  addCar(car : Car): Observable<any>{
-    return this.httpClient.post<any>(this.url, car, httpOptions);
+  addCar(car : Car): Observable<Car>{
+    return this.httpClient.post<Car>(this.url, car, httpOptions);
   }
 
 
   /**PUT: update a car on the server */
-  updateCar(id: string , car: Car): Observable<any>{
-    return this.httpClient.put<any>(`${this.url}/${id}`,car, httpOptions);
+  updateCar(id: string , car: Car): Observable<Car>{
+    return this.httpClient.put<Car>(`${this.url}/${id}`, car, httpOptions);
   }
 }

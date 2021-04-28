@@ -2,22 +2,22 @@
     <form>
         <div>
         <label> Brand </label>
-        <input type = "text" id ="cbrand" name="brand" [(ngModel)] = "brand"/>
+        <input type = "text" class="form-control" id ="cbrand" name="brand" [(ngModel)] = "brand"/>
         </div>
 
         <div>
             <label> Country </label>
-            <input type = "text" id ="ccountry" name="country" [(ngModel)] = "country"/>
+            <input type = "text" class="form-control" id ="ccountry" name="country" [(ngModel)] = "country"/>
         </div>
 
         <div>
             <label> Registration </label>
-            <input type = "datetime-local" id = "cregistration" name = "registration" [(ngModel)] = "registration"/>
+            <input type = "datetime-local" class="form-control" id = "cregistration" name = "registration" [(ngModel)] = "registration"/>
 
         </div>
 
         
     </form>
 
-    <button type = "button" (click)="addCar()"> Submit </button>
+    <button type = "button" class = "btn btn- btn-light" (click)="addCar()"> Submit </button>
 </div>
