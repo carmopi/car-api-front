@@ -2,7 +2,9 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { Brand } from '../model/brand';
 import { Car } from '../model/car.model';
+import { Country } from '../model/country';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json'})
@@ -15,7 +17,7 @@ const httpOptions = {
 
 export class CarService {
 
-  private url = "http://localhost:8080/car-app/cars";
+  private url = "http://localhost:8080/car-app-1.0.0-SNAPSHOT/cars";
 
 
 
@@ -43,6 +45,7 @@ export class CarService {
   /** POST: add a new car on the server */
   addCar(car : Car): Observable<Car>{
     return this.httpClient.post<Car>(this.url, car, httpOptions);
+
   }
 
 
@@ -50,4 +53,6 @@ export class CarService {
   updateCar(id: string , car: Car): Observable<Car>{
     return this.httpClient.put<Car>(`${this.url}/${id}`, car, httpOptions);
   }
+
+
 }
