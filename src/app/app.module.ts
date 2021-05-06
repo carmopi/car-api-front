@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,8 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { CarUpdatedComponent } from './car-updated/car-updated.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-
-
+import { CookieService } from 'ngx-cookie-service';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MaterialModule } from './material/material.module';
     CarDetailsComponent,
     NewCarComponent,
     CarUpdatedComponent,
+    LoginComponent,
 
   ],
   imports: [
@@ -35,7 +37,14 @@ import { MaterialModule } from './material/material.module';
    
 
   ],
-  providers: [CarService],
+  providers: [
+    CookieService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    },
+    CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

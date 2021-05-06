@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { Brand } from '../model/brand';
 
@@ -9,26 +10,25 @@ import { Brand } from '../model/brand';
 export class BrandService {
 
 
-  private url = "http://localhost:8080/car-app-1.0.0-SNAPSHOT/brands";
+  private url = "http://localhost:8080/car-app/brands";
 
-  constructor(private httpClient: HttpClient) { }
+  private headers = new HttpHeaders()
+        .set('Authorization', this.cookieService.get('token'));
+
+  constructor(private httpClient: HttpClient, private cookieService: CookieService) { }
 
 
 
 
   /**GET brands form the server */
   getBrands(): Observable<Array<Brand>>{
-    return this.httpClient.get<Array<Brand>>(this.url);
+    return this.httpClient.get<Array<Brand>>(this.url, {headers: this.headers});
   }
 
   /**GET brand from the server  */
   getBrand(id:string): Observable<Brand>{
-    return this.httpClient.get<Brand>(`${this.url}/${id}`);
+    return this.httpClient.get<Brand>(`${this.url}/${id}`, {headers: this.headers});
 
   }
 
-  /**PUT: update a brand on the server  */
-  updateBrand(id: string, brand: Brand): Observable<Brand>{
-    return this.httpClient.put<Brand>(`${this.url}/${id}`, brand);
-  }
 }
