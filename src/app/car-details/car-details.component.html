@@ -1,13 +1,13 @@
 
 <div *ngIf="car | async as res" class ="mx-auto w-25 align-middle">
-<h2>{{res.brand | uppercase}} Details</h2>
+<h2>{{res.brand.name | uppercase}} Details</h2>
 
 <div>
     <span><dt>Id:</dt> </span>{{res.id}}
 </div>
 
 <div>
-    <span><dt>Country: </dt></span>{{res.country}}
+    <span><dt>Country: </dt></span>{{res.country.name}}
 </div>
 
 <div>
@@ -22,8 +22,8 @@
     <span><dt>Last update: </dt></span>{{res.lastUpdate}}
 </div>
 
-<button type = "button" class = "btn btn- btn-light"><a [routerLink]="['/update/', res.id]"> Edit </a></button>
-<button type = "button" class = "btn btn- btn-light" (click) = deleteCar()> Delete</button>
+<button type = "button" class = "btn  btn-light"><a [routerLink]="['/update/', res.id]"> Edit </a></button>
+<mat-mini-fab  type = "button" class = "btn  btn-light" (click) = deleteCar()> Delete</mat-mini-fab>
 
 </div>
 

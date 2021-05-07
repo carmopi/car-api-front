@@ -7,7 +7,7 @@
 <div class = "table table-hover mx-auto" >  
   <h1 class = "text-info bg-light">CARS TABLE </h1>
 
-  <mat-table  [dataSource] = "dataSource" matSort>
+  <mat-table  [dataSource] = "dataSource" matSort >
   
 
       <!-- ID COLUMN-->
@@ -19,7 +19,7 @@
         <!--BRAND COLUMN-->
         <ng-container matColumnDef = "brand">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Brand</mat-header-cell> 
-          <mat-cell *matCellDef="let row">{{ row.brand }}</mat-cell>
+          <mat-cell *matCellDef="let row" >{{ row.brand }}</mat-cell>
         </ng-container>
         
         <!--REGISTRATION COLUMN-->

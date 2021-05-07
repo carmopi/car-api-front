@@ -26,7 +26,8 @@ export class CarDetailsComponent implements OnInit {
 
   }
  
-  updateCAr(){
+  
+  updateCar(){
     this.router.navigate(['update', this.carId]);
   }
 

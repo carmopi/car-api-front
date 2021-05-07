@@ -6,14 +6,20 @@
             <input type = "text" class="form-control" id ="cid" name="id" [(ngModel)] = "car.id"/>
         </div>
 
-        <div>
+        <div *ngIf="brands | async as brands">
             <label> Brand </label>
-            <input type = "text" class="form-control"  id ="cbrand" name="brand" [(ngModel)] = "car.brand"/>
+            <select (change)="getBrand($event)">
+                <option disabled selected> Select a brand</option>
+                <option *ngFor="let brand of brands" [value]="brand.id"> {{brand.name}}</option>
+            </select>
         </div>
 
-        <div>
+        <div *ngIf="countries | async as countries">
             <label> Country </label>
-            <input type = "text" class="form-control" id ="ccountry" name="country" [(ngModel)] = "car.country"/>
+            <select (change)="getCountry($event)">
+                <option disabled selected> Select a country</option>
+                <option *ngFor="let country of countries" [value]="country.id"> {{country.name}}</option>
+            </select>
         </div>
 
         <div>
